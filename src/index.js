@@ -15,3 +15,4 @@ rl.question('Input file name ', (answer) => {
     var readStream = fs.createReadStream(`../test_data/${file}.txt`, 'utf8');
   rl.close();
 });
+
