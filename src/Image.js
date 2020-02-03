@@ -1,9 +1,14 @@
 class Image {
 
-    constructor(alignment, id, tags){
-        this.alignment = alignment;
+    constructor(id, alignment, numberOfTags, tags){
         this.id = id;
+        this.alignment = alignment;
+        this.numberOfTags = numberOfTags;
         this.tags = tags;
+    }
+
+    getNumberOfTags(){
+        return this.numberOfTags;
     }
 
     getAlignment(){
