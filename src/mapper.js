@@ -9,6 +9,7 @@ const mapper = readStream => {
   let counter = 0;
   let images = [];
   let numOfImages = 0;
+  let imageID = 1;
 
   console.log("Crunching the numbers");
 
@@ -27,13 +28,15 @@ const mapper = readStream => {
         tags.push(tag);
       };
       images.push({
+        imageID: imageID,
         alignment: input[0],
         noOfTags: noOfTags,
         tags: tags
       });
+      imageID ++ ;
     }
     console.log(images);
-  });
+  })
 
 };
 
