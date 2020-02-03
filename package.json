@@ -1,0 +1,15 @@
+{
+  "name": "photoslide",
+  "version": "1.0.0",
+  "description": "Google Hashcode 2019 Qualifier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "photoSlide"
+  },
+  "author": "Chirath, Gayanga, Nethmi",
+  "license": "ISC"
+}
