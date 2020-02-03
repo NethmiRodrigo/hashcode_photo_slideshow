@@ -1,11 +1,18 @@
-const Image = require("./Image");
-const File = require("./File");
+const readline = require('readline');
+const fs = require('fs');
 
-const image1 = new Image("H", 6, ["Stripper", "Sex"]);
-const image2 = new Image("V", 9, ["Bang", "Fuck"]);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-const newFile = new File(2, [image1, image2]);
+let file;
 
-console.log(newFile);
+rl.question('Input file name ', (answer) => {
 
-console.log(image1);
+    console.log(`Reading file name: ${answer}`);
+    file=answer;
+    var readStream = fs.createReadStream(`../test_data/${file}.txt`, 'utf8');
+  rl.close();
+});
+
