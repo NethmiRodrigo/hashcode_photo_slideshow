@@ -1,4 +1,4 @@
-export default class Image {
+class Image {
   constructor(id, alignment, numberOfTags, tags) {
     this.id = id;
     this.alignment = alignment;
@@ -38,3 +38,5 @@ export default class Image {
     this.numberOfTags = numberOfTags;
   }
 }
+
+module.exports = Image;

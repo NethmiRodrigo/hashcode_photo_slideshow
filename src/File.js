@@ -1,4 +1,4 @@
-export default class File {
+class File {
   constructor(numberOfImages, images) {
     this.numberOfImages = numberOfImages;
     this.images = images;
@@ -20,3 +20,5 @@ export default class File {
     this.images = images;
   }
 }
+
+module.exports = File;
