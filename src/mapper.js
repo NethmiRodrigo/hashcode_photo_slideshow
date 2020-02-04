@@ -1,4 +1,6 @@
 const readline = require("readline");
+import File from "./file";
+import Image from "./image";
 
 const mapper = readStream => {
   const rl = readline.createInterface({
@@ -7,34 +9,30 @@ const mapper = readStream => {
   });
 
   let counter = 0;
-  let images = [];
-  let numOfImages = 0;
-
-  console.log("Crunching the numbers");
+  var file = new File();
+  console.log("Crunching the numbers. Please wait!");
 
   //iteration
   rl.on("line", line => {
-    console.log(`Line from file: ${line}`);
+    //new instance of Image
+    var image = new Image();
     if (line.length === 1) {
-      numOfImages = parseInt(line, 10);
-    }
-    else {
+      file.setNumberOfImages(line);
+    } else {
+      counter++;
       let input = line.split(" ");
-      let noOfTags = parseInt(input[1], 10);
+      image.setId(counter);
+      image.setAlignment(input[0]);
+      image.setNumberOfTags(input[1]);
       let tags = [];
-      for ( let i = 2; i < (noOfTags + 2); i++) {
+      for (let i = 2; i < noOfTags + 2; i++) {
         let tag = input[i];
         tags.push(tag);
-      };
-      images.push({
-        alignment: input[0],
-        noOfTags: noOfTags,
-        tags: tags
-      });
+      }
+      image.setTags(tags);
     }
-    console.log(images);
+    console.log(image);
   });
-
 };
 
 module.exports = mapper;
