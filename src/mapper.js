@@ -1,6 +1,6 @@
 const readline = require("readline");
-const Image = require("./image");
-const File = require("./file");
+const Image = require("./entities/image");
+const File = require("./entities/file");
 
 const mapper = readStream => {
   const rl = readline.createInterface({
@@ -32,12 +32,15 @@ const mapper = readStream => {
       }
       image.setTags(tags);
       imageArray.push(image);
-      console.log(imageArray);
       counter++;
     }
   });
-  file.setImages(imageArray);
-  console.log(imageArray);
+
+  rl.on("close", function() {
+    file.setImages(imageArray);
+    console.log(file);
+    console.log(file.images);
+  });
 };
 
 module.exports = mapper;
