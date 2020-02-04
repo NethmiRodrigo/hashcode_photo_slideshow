@@ -1,26 +1,24 @@
-//const Image = require("./Image");
-
 class File {
-    constructor(numberOfImages, images){
-        this.numberOfImages = numberOfImages;
-        this.images = images;
-    }
+  constructor(numberOfImages, images) {
+    this.numberOfImages = numberOfImages;
+    this.images = images;
+  }
 
-    getNumberOfImages(){
-        return this.numberOfImages;
-    }
+  getNumberOfImages() {
+    return this.numberOfImages;
+  }
 
-    getImages(){
-        return this.images;
-    }
+  getImages() {
+    return this.images;
+  }
 
-    setNumberOfImages(numberOfImages){
-        this.numberOfImages = numberOfImages;
-    }
+  setNumberOfImages(numberOfImages) {
+    this.numberOfImages = numberOfImages;
+  }
 
-    setImages(images){
-        this.images = images;
-    }
+  setImages(images) {
+    this.images = images;
+  }
 }
 
 module.exports = File;
