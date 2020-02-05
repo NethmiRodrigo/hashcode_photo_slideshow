@@ -14,15 +14,15 @@ const mapper = readStream => {
   var file = new File();
   console.log("Crunching the numbers. Please wait!");
 
-  //iteration
+  //iterated through every line of the file and maps data to objects
   rl.on("line", line => {
-    if (line.length === 1) {
-      file.setNumberOfImages(line);
+    let input = line.split(" ");
+    if (counter == 0) {
+      file.setNumberOfImages(parseInt(input[0], 10));
     } else {
       //new instance of Image
       var image = new Image();
       let tags = new Array();
-      let input = line.split(" ");
       let noOfTags = parseInt(input[1], 10);
       image.setId(counter);
       image.setAlignment(input[0]);
@@ -32,14 +32,14 @@ const mapper = readStream => {
       }
       image.setTags(tags);
       imageArray.push(image);
-      counter++;
     }
+    counter++;
   });
 
+  //runs once the end of the file is reached
   rl.on("close", function() {
     file.setImages(imageArray);
     console.log(file);
-    console.log(file.images);
   });
 };
 
