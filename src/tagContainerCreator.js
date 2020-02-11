@@ -15,7 +15,9 @@ const tagContainerCreator = file => {
     tagContainer.set(tag, taggedImages);
   });
 
-  console.log(tagContainer);
+  //console.log(tagContainer);
+
+  return tagContainer;
 };
 
 module.exports = tagContainerCreator;
