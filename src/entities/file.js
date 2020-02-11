@@ -22,7 +22,7 @@ class File {
   }
 
   getAllTags() {
-    return this.tags;
+    return this.allTags;
   }
 
   setAllTags(allTags) {

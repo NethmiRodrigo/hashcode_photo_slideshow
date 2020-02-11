@@ -1,6 +1,7 @@
 const readline = require("readline");
 const Image = require("./entities/image");
 const File = require("./entities/file");
+const tagContainerCreator = require("./tagContainerCreator");
 
 let allTags = [];
 
@@ -45,6 +46,7 @@ const mapper = readStream => {
     file.setImages(imageArray);
     file.setAllTags(allTags);
     console.log(file);
+    tagContainerCreator(file);
   });
 };
 
