@@ -1,7 +1,8 @@
 class File {
-  constructor(numberOfImages, images) {
+  constructor(numberOfImages, images, tags) {
     this.numberOfImages = numberOfImages;
     this.images = images;
+    this.tags = tags;
   }
 
   getNumberOfImages() {
@@ -18,6 +19,14 @@ class File {
 
   setImages(images) {
     this.images = images;
+  }
+
+  getTags() {
+    return this.tags;
+  }
+
+  setTags(tags) {
+    this.tags = tags;
   }
 }
 

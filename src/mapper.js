@@ -2,6 +2,8 @@ const readline = require("readline");
 const Image = require("./entities/image");
 const File = require("./entities/file");
 
+let allTags = [];
+
 const mapper = readStream => {
   const rl = readline.createInterface({
     input: readStream,
@@ -29,6 +31,7 @@ const mapper = readStream => {
       image.setNumberOfTags(input[1]);
       for (i = 2; i < noOfTags + 2; i++) {
         tags.push(input[i]);
+        allTags.push(input[i]);
       }
       image.setTags(tags);
       imageArray.push(image);
@@ -37,9 +40,12 @@ const mapper = readStream => {
   });
 
   rl.on("close", function() {
+    allTags = Array.from(new Set(allTags));
     file.setImages(imageArray);
+    file.setTags(allTags);
     console.log(file);
     console.log(file.images);
+    console.log(file.tags);
   });
 };
 
