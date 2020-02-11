@@ -43,10 +43,8 @@ const mapper = readStream => {
   rl.on("close", function() {
     allTags = Array.from(new Set(allTags));
     file.setImages(imageArray);
-    file.setTags(allTags);
+    file.setAllTags(allTags);
     console.log(file);
-    console.log(file.images);
-    console.log(file.tags);
   });
 };
 
