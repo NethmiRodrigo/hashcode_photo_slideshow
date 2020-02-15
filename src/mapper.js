@@ -48,7 +48,6 @@ const mapper = readStream => {
     allTags = Array.from(new Set(allTags));
     file.setImages(imageArray);
     file.setAllTags(allTags);
-    console.log(file);
     //tagContainer = tagContainerCreator(file);
     //createSlideShow(tagContainer);
     makeSlides(file);
