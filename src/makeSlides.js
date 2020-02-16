@@ -9,14 +9,7 @@ const makeSlides = file => {
     for (let i = 0; i < images.length; i++) {
       if (nextTags.length !== 0 && i === 0) {
         let tags = images[i].tags;
-        for (let j = 0; j < tags.length; j++) {
-          let tag = tags[j];
-          if (nextTags.includes(tag)) {
-            console.log(tag);
-          }
-        }
-        for (let p = 0; p > tags.length; p++) {
-          console.log("P", tags[p]);
+        for (let p = 0; p < tags.length; p++) {
           if (nextTags.includes(tags[p])) {
             if (verticalArray.length === 1) {
               if (images[i].alignment === "V") {
@@ -48,11 +41,12 @@ const makeSlides = file => {
         }
 
         //If the first image is vertical, pushes that image to a seperate array and sets the next possible tags
-        else if (images[i].alignment === "V") {
+        if (images[i].alignment === "V") {
           verticalArray.push(images[i]);
           nextTags = images[i].tags;
         }
-      } else if (i !== 0) {
+      }
+      if (i !== 0) {
         let tags = images[i].tags;
         for (let l = 0; l < tags.length; l++) {
           //If it isn't the first image, checks if any of its tags matches the tags in the nextTags array
@@ -78,7 +72,7 @@ const makeSlides = file => {
             }
 
             //If a vertical image isn't waiting to be found, checks if the image is horizontal and pushes it to slide, and breaks the tags loop
-            else if (images[i].alignment === "H") {
+            if (images[i].alignment === "H") {
               slide.push(images[i]);
               nextTags = images[i].tags;
               break;
@@ -96,9 +90,8 @@ const makeSlides = file => {
     }
 
     if (verticalArray.length !== 0) {
-      console.log("Vertical array", verticalArray);
-      // let index = images.indexOf(verticalArray[0]);
-      // images.splice(index, 1);
+      let index = images.indexOf(verticalArray[0]);
+      images.splice(index, 1);
     }
 
     //after a complete loop through the image array, deletes the images from the image array that has been put into a slice
