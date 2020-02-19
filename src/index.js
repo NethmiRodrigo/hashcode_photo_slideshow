@@ -28,7 +28,7 @@ rl.question("Input file name ", answer => {
       file = "e_shiny_selfies";
       break;
   }
-  var readStream = fs.createReadStream(`../input/${file}.txt`, "utf8");
+  let readStream = fs.createReadStream(`../input/${file}.txt`, "utf8");
   mapper(readStream);
   rl.close();
 });
