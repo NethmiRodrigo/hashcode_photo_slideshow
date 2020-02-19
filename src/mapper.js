@@ -46,8 +46,8 @@ const mapper = readStream => {
 
   rl.on("close", function() {
     file.allTags = Array.from(new Set(file.allTags));
-    tagContainerCreator(file);
-    // h_show(file);
+    // tagContainerCreator(file);
+    h_show(file);
   });
 };
 

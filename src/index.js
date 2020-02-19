@@ -27,6 +27,8 @@ rl.question("Input file name ", answer => {
     case "e":
       file = "e_shiny_selfies";
       break;
+    case "f":
+      file = "small_horizontal";
   }
   let readStream = fs.createReadStream(`../input/${file}.txt`, "utf8");
   mapper(readStream);
