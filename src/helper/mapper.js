@@ -2,8 +2,9 @@ const readline = require("readline");
 const h_show = require("./horizontalSlides");
 const v_show = require("./verticalSlides");
 const slideSorter = require("../slideSorter");
+const exporter = require("./exporter");
 
-const mapper = readStream => {
+const mapper = (filename, readStream) => {
   const rl = readline.createInterface({
     input: readStream,
     crlfDelay: Infinity
@@ -48,7 +49,7 @@ const mapper = readStream => {
     if (horizontalArray.length !== 0 && verticalArray.length !== 0) {
       horizontalSlides = h_show(horizontalArray);
       verticalSlides = v_show(verticalArray);
-      allSlides = horizontalArray;
+      allSlides = horizontalSlides;
       verticalSlides.forEach(element => {
         allSlides.push(element);
       });
@@ -59,7 +60,8 @@ const mapper = readStream => {
       verticalSlides = v_show(verticalArray);
       allSlides = verticalSlides;
     }
-    slideSorter(allSlides);
+    let sortedSlides = slideSorter(allSlides);
+    exporter(filename, sortedSlides);
   });
 };
 

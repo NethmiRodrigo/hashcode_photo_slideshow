@@ -31,6 +31,6 @@ rl.question("Input file name ", answer => {
       file = "small_horizontal";
   }
   let readStream = fs.createReadStream(`../input/${file}.txt`, "utf8");
-  mapper(readStream);
+  mapper(file, readStream);
   rl.close();
 });

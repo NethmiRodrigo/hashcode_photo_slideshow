@@ -25,6 +25,7 @@ const makeSlideshow = sortedSlides => {
     console.log("current score", totalScore);
   }
   console.log(totalScore);
+  return sortedSlides;
 };
 
 module.exports = makeSlideshow;
