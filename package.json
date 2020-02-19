@@ -11,5 +11,6 @@
     "url": "photoSlide"
   },
   "author": "Guyson, Neith & XP3L",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {}
 }
