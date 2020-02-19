@@ -3,7 +3,6 @@ const Image = require("./entities/image");
 const File = require("./entities/file");
 const tagContainerCreator = require("./tagContainerCreator");
 const createSlideShow = require("./createSlideShow");
-const makeSlides = require("./makeSlides");
 
 let allTags = [];
 //let tagContainer = new Map();
@@ -48,9 +47,9 @@ const mapper = readStream => {
     allTags = Array.from(new Set(allTags));
     file.setImages(imageArray);
     file.setAllTags(allTags);
+    console.log(file);
     //tagContainer = tagContainerCreator(file);
     //createSlideShow(tagContainer);
-    makeSlides(file);
   });
 };
 
