@@ -1,5 +1,6 @@
 const readline = require("readline");
 const h_show = require("./horizontalSlideshow");
+const v_show = require("./verticalSlideshow");
 
 const mapper = readStream => {
   const rl = readline.createInterface({
@@ -45,7 +46,8 @@ const mapper = readStream => {
 
   rl.on("close", function() {
     file.allTags = Array.from(new Set(file.allTags));
-    h_show(file);
+    //h_show(file);
+    v_show(file);
   });
 };
 
