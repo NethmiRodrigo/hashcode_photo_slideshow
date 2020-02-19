@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 module.exports = (filename, slides) => {
-  fs.appendFile(`../../output/${filename}.out`, slides.length + "\n", function(
+  fs.appendFile(`../output/${filename}.out`, slides.length + "\n", function(
     error
   ) {
     if (error) return console.log(error);
@@ -12,7 +12,7 @@ module.exports = (filename, slides) => {
         line.push(slides[i].images[j].id);
       }
       fs.appendFile(
-        `../../output/${filename}.out`,
+        `../output/${filename}.out`,
         line.join(" ") + "\n",
         function(error) {
           if (error) return console.log(error);
