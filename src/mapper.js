@@ -1,6 +1,10 @@
 const readline = require("readline");
 const h_show = require("./horizontalSlideshow");
+<<<<<<< HEAD
 const v_show = require("./verticalSlideshow");
+=======
+const tagContainerCreator = require("./helper/tagContainerCreator");
+>>>>>>> Neith
 
 const mapper = readStream => {
   const rl = readline.createInterface({
@@ -46,8 +50,13 @@ const mapper = readStream => {
 
   rl.on("close", function() {
     file.allTags = Array.from(new Set(file.allTags));
+<<<<<<< HEAD
     //h_show(file);
     v_show(file);
+=======
+    tagContainerCreator(file);
+    // h_show(file);
+>>>>>>> Neith
   });
 };
 
