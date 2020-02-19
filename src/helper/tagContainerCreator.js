@@ -1,7 +1,6 @@
 const tagContainerCreator = file => {
   let tagContainer = {};
   let images = file.images;
-  let allTags = file.allTags;
   images.forEach(image => {
     let tags = image.tags;
     let tagsPushed = Object.keys(tagContainer);
@@ -14,6 +13,7 @@ const tagContainerCreator = file => {
         tagsPushed.push(tag);
       }
     });
+    console.log(image.id);
   });
 
   console.log(tagContainer);
