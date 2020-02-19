@@ -1,5 +1,5 @@
 const readline = require("readline");
-const h_show = require("./horizontalSlideshow");
+const h_show = require("./slideSorter");
 const tagContainerCreator = require("./helper/tagContainerCreator");
 
 const mapper = readStream => {

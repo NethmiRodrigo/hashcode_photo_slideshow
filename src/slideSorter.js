@@ -6,7 +6,6 @@ const makeSlideshow = file => {
   let sortedImages = sort(file.images);
   // let score = calScore(sortedImages[2].tags, sortedImages[1].tags);
   let totalScore = 0;
-  let slide = [];
   let selectedImageIndex;
   for (let i = 0; i < sortedImages.length; i++) {
     let score = 0;
