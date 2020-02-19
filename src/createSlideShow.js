@@ -4,8 +4,6 @@ const createSildeShow = tagContainer => {
   let firstImages = tagContainer.get(firstKey);
 
   const slideShow = new Array();
-  const slide;
-  
 };
 
 module.exports = createSildeShow;

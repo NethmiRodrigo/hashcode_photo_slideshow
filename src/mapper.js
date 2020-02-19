@@ -5,7 +5,7 @@ const tagContainerCreator = require("./tagContainerCreator");
 const createSlideShow = require("./createSlideShow");
 
 let allTags = [];
-let tagContainer = new Map();
+//let tagContainer = new Map();
 
 const mapper = readStream => {
   const rl = readline.createInterface({
@@ -31,7 +31,7 @@ const mapper = readStream => {
       let noOfTags = parseInt(input[1], 10);
       image.setId(counter);
       image.setAlignment(input[0]);
-      image.setNumberOfTags(input[1]);
+      image.setNumberOfTags(noOfTags);
       for (i = 2; i < noOfTags + 2; i++) {
         tags.push(input[i]);
         allTags.push(input[i]);
@@ -48,8 +48,8 @@ const mapper = readStream => {
     file.setImages(imageArray);
     file.setAllTags(allTags);
     console.log(file);
-    tagContainer = tagContainerCreator(file);
-    createSlideShow(tagContainer);
+    //tagContainer = tagContainerCreator(file);
+    //createSlideShow(tagContainer);
   });
 };
 
