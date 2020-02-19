@@ -1,7 +1,6 @@
 const sort = require("./sortByTags");
 
-const makeHorizontalSlides = images => {
-  let sortedImages = sort(images);
+const makeHorizontalSlides = sortedImages => {
   let slideshow = [];
 
   for (let i = 0; i < sortedImages.length; i++) {

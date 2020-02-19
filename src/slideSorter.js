@@ -1,29 +1,30 @@
 /* This solution is used only for data set b*/
+const sort = require("./helper/sortByTags");
 const calScore = require("./helper/calculatePoints");
 
-const makeSlideshow = sortedImages => {
-  console.log(sortedImages.length);
-  // let sortedImages = sort(file.images);
-  // let score = calScore(sortedImages[2].tags, sortedImages[1].tags);
+const makeSlideshow = slides => {
+  let sortedSlides = sort(slides);
+  // let sortedSlides = sort(file.images);
+  // let score = calScore(sortedSlides[2].tags, sortedSlides[1].tags);
   let totalScore = 0;
-  let selectedImageIndex;
-  for (let i = 0; i < sortedImages.length; i++) {
+  let selectedSlideIndex;
+  for (let i = 0; i < sortedSlides.length; i++) {
     let score = 0;
     let maxScore = 0;
-    for (j = i + 1; j < sortedImages.length; j++) {
-      if (sortedImages[j].tags.length < 2 * maxScore) {
+    for (j = i + 1; j < sortedSlides.length; j++) {
+      if (sortedSlides[j].tags.length < 2 * maxScore) {
         continue;
       }
-      score = calScore(sortedImages[i].tags, sortedImages[j].tags);
+      score = calScore(sortedSlides[i].tags, sortedSlides[j].tags);
       if (score > maxScore) {
         maxScore = score;
-        selectedImageIndex = j;
+        selectedSlideIndex = j;
         continue;
       }
     }
     totalScore = totalScore + maxScore;
-    let selectedImage = sortedImages.splice(selectedImageIndex, 1);
-    sortedImages.splice(i + 1, 0, selectedImage[0]);
+    let selectedImage = sortedSlides.splice(selectedSlideIndex, 1);
+    sortedSlides.splice(i + 1, 0, selectedImage[0]);
     console.log("current score", totalScore);
   }
   console.log(totalScore);

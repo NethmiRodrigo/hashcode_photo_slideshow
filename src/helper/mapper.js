@@ -48,7 +48,10 @@ const mapper = readStream => {
     if (horizontalArray.length !== 0 && verticalArray.length !== 0) {
       horizontalSlides = h_show(horizontalArray);
       verticalSlides = v_show(verticalArray);
-      allSlides = horizontalArray.concat(verticalArray);
+      allSlides = horizontalArray;
+      verticalSlides.forEach(element => {
+        allSlides.push(element);
+      });
     } else if (horizontalArray.length !== 0) {
       horizontalSlides = h_show(horizontalArray);
       allSlides = horizontalSlides;
@@ -56,6 +59,7 @@ const mapper = readStream => {
       verticalSlides = v_show(verticalArray);
       allSlides = verticalSlides;
     }
+    console.log(allSlides);
     slideSorter(allSlides);
   });
 };
