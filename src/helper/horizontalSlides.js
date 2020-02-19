@@ -1,5 +1,3 @@
-const sort = require("./sortByTags");
-
 const makeHorizontalSlides = sortedImages => {
   let slideshow = [];
 
@@ -14,7 +12,6 @@ const makeHorizontalSlides = sortedImages => {
     });
     slideshow.push(slide);
   }
-  console.log("Horizontal slideshow length", slideshow.length);
   return slideshow;
 };
 

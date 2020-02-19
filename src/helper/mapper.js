@@ -59,7 +59,6 @@ const mapper = readStream => {
       verticalSlides = v_show(verticalArray);
       allSlides = verticalSlides;
     }
-    console.log(allSlides);
     slideSorter(allSlides);
   });
 };

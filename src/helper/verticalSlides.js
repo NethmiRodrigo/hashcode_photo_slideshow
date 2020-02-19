@@ -27,7 +27,6 @@ const makeSlideshow = images => {
     slideshow.push(slide);
   }
 
-  console.log("Vertical slideshow length", slideshow.length);
   return slideshow;
 
   /************************************************************************************************************************/

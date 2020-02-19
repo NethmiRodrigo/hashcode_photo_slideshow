@@ -1,10 +1,7 @@
 /* This solution is used only for data set b*/
-const sort = require("./helper/sortByTags");
 const calScore = require("./helper/calculatePoints");
 
-const makeSlideshow = slides => {
-  let sortedSlides = sort(slides);
-  // let sortedSlides = sort(file.images);
+const makeSlideshow = sortedSlides => {
   // let score = calScore(sortedSlides[2].tags, sortedSlides[1].tags);
   let totalScore = 0;
   let selectedSlideIndex;
