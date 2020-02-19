@@ -4,12 +4,13 @@
   "description": "Google Hashcode 2019 Qualifier",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd src && node index.js"
   },
   "repository": {
     "type": "git",
     "url": "photoSlide"
   },
-  "author": "Chirath, Gayanga, Nethmi",
-  "license": "ISC"
+  "author": "Guyson, Neith & XP3L",
+  "license": "ISC",
+  "dependencies": {}
 }

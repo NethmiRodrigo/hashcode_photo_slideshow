@@ -11,8 +11,24 @@ let file;
 
 rl.question("Input file name ", answer => {
   console.log(`Reading file name: ${answer}`);
-  file = answer;
-  var readStream = fs.createReadStream(`../test_data/${file}.txt`, "utf8");
+  switch (answer) {
+    case "a":
+      file = "a_example";
+      break;
+    case "b":
+      file = "b_lovely_landscapes";
+      break;
+    case "c":
+      file = "c_memorable_moments";
+      break;
+    case "d":
+      file = "d_pet_pictures";
+      break;
+    case "e":
+      file = "e_shiny_selfies";
+      break;
+  }
+  let readStream = fs.createReadStream(`../input/${file}.txt`, "utf8");
   mapper(readStream);
   rl.close();
 });

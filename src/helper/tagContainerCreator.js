@@ -14,15 +14,11 @@ const tagContainerCreator = file => {
         tagsPushed.push(tag);
       }
     });
-    console.log("Image pushed", image.id);
   });
 
   console.log(tagContainer);
-<<<<<<< Updated upstream:src/tagContainerCreator.js
-=======
 
   return tagContainer;
->>>>>>> Stashed changes:src/helper/tagContainerCreator.js
 };
 
 module.exports = tagContainerCreator;
