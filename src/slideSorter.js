@@ -1,9 +1,9 @@
 /* This solution is used only for data set b*/
-const sort = require("./sortByTags");
 const calScore = require("./helper/calculatePoints");
 
-const makeSlideshow = file => {
-  let sortedImages = sort(file.images);
+const makeSlideshow = sortedImages => {
+  console.log(sortedImages.length);
+  // let sortedImages = sort(file.images);
   // let score = calScore(sortedImages[2].tags, sortedImages[1].tags);
   let totalScore = 0;
   let selectedImageIndex;
@@ -11,7 +11,7 @@ const makeSlideshow = file => {
     let score = 0;
     let maxScore = 0;
     for (j = i + 1; j < sortedImages.length; j++) {
-      if (sortedImages[j].numberOfTags < 2 * maxScore) {
+      if (sortedImages[j].tags.length < 2 * maxScore) {
         continue;
       }
       score = calScore(sortedImages[i].tags, sortedImages[j].tags);

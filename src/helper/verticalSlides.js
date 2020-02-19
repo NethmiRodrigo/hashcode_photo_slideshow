@@ -1,13 +1,10 @@
 /* This solution is used only for data set e*/
 const sort = require("./sortByTags");
-const calScore = require("./helper/calculatePoints");
 
-const makeSlideshow = file => {
-  let sortedImages = sort(file.images);
+const makeSlideshow = images => {
+  let sortedImages = sort(images);
 
-  let slideshow = {
-    slides: []
-  };
+  let slideshow = [];
 
   /* The below code will combine vertical images with the least number of tags with images with most number of tags so that
   all slides will have almost equal number of tags */
@@ -27,8 +24,11 @@ const makeSlideshow = file => {
     image_b.tags.forEach(element => {
       slide.tags.push(element);
     });
-    slideshow.slides.push(slide);
+    slideshow.push(slide);
   }
+
+  console.log("Vertical slideshow length", slideshow.length);
+  return slideshow;
 
   /************************************************************************************************************************/
 };
