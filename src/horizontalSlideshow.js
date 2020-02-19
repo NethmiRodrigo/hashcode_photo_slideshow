@@ -5,15 +5,29 @@ const calScore = require("./helper/calculatePoints");
 const makeSlideshow = file => {
   let sortedImages = sort(file.images);
   // let score = calScore(sortedImages[2].tags, sortedImages[1].tags);
-  let maxScore = 0;
   let totalScore = 0;
   let slide = [];
-  let solutionIndex = [];
+  let selectedImageIndex;
   for (let i = 0; i < sortedImages.length; i++) {
-    let tags = sortedImages[i].tags;
-    let score = calScore(sortedImages[i].tags, sortedImages[i + 1].tags);
+    let score = 0;
+    let maxScore = 0;
+    for (j = i + 1; j < sortedImages.length; j++) {
+      if (sortedImages[j].numberOfTags < 2 * maxScore) {
+        continue;
+      }
+      score = calScore(sortedImages[i].tags, sortedImages[j].tags);
+      if (score > maxScore) {
+        maxScore = score;
+        selectedImageIndex = j;
+        continue;
+      }
+    }
+    totalScore = totalScore + maxScore;
+    let selectedImage = sortedImages.splice(selectedImageIndex, 1);
+    sortedImages.splice(i + 1, 0, selectedImage[0]);
+    console.log("current score", totalScore);
   }
-  console.log(score);
+  console.log(totalScore);
 };
 
 module.exports = makeSlideshow;
