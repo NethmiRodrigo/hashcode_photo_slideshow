@@ -1,9 +1,6 @@
 const readline = require("readline");
-const Image = require("./entities/image");
-const File = require("./entities/file");
-const tagContainerCreator = require("./tagContainerCreator");
-
-let allTags = [];
+const h_show = require("./horizontalSlideshow");
+const tagContainerCreator = require("./helper/tagContainerCreator");
 
 const mapper = readStream => {
   const rl = readline.createInterface({
@@ -42,11 +39,9 @@ const mapper = readStream => {
 
   //runs once the end of the file is reached
   rl.on("close", function() {
-    allTags = Array.from(new Set(allTags));
-    file.setImages(imageArray);
-    file.setAllTags(allTags);
-    console.log(file);
+    file.allTags = Array.from(new Set(file.allTags));
     tagContainerCreator(file);
+    // h_show(file);
   });
 };
 
