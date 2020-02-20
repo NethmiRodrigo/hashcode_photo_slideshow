@@ -2,6 +2,7 @@
 const calScore = require("./helper/calculatePoints");
 
 const makeSlideshow = sortedSlides => {
+  let slides = [];
   // let score = calScore(sortedSlides[2].tags, sortedSlides[1].tags);
   let totalScore = 0;
   for (let i = 0; i < sortedSlides.length; i++) {
@@ -28,11 +29,19 @@ const makeSlideshow = sortedSlides => {
     if (score !== 0) {
       let selectedImage = sortedSlides.splice(selectedSlideIndex, 1);
       sortedSlides.splice(i + 1, 0, selectedImage[0]);
+      if (i === 0) {
+        slides.push(sortedSlides[0]);
+        slides.push(selectedImage[0]);
+      } else {
+        slides.push(selectedImage[0]);
+      }
     }
     console.log("current score", totalScore);
   }
   console.log(totalScore);
-  return sortedSlides;
+  if (slides.length === 0) {
+    return sortedSlides;
+  } else return slides;
 };
 
 module.exports = makeSlideshow;
