@@ -24,6 +24,7 @@ const makeSlideshow = images => {
     image_b.tags.forEach(element => {
       slide.tags.push(element);
     });
+    slide.tags = [...new Set(slide.tags)];
     slideshow.push(slide);
   }
 

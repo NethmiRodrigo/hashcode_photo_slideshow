@@ -26,7 +26,7 @@ const makeSlideshow = sortedSlides => {
       }
     }
     totalScore = totalScore + maxScore;
-    if (score !== 0) {
+    if (maxScore !== 0) {
       let selectedImage = sortedSlides.splice(selectedSlideIndex, 1);
       sortedSlides.splice(i + 1, 0, selectedImage[0]);
       if (i === 0) {
