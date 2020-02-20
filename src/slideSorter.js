@@ -4,16 +4,21 @@ const calScore = require("./helper/calculatePoints");
 const makeSlideshow = sortedSlides => {
   // let score = calScore(sortedSlides[2].tags, sortedSlides[1].tags);
   let totalScore = 0;
-  let selectedSlideIndex;
   for (let i = 0; i < sortedSlides.length; i++) {
     let score = 0;
+    let selectedSlideIndex;
     let maxScore = 0;
     for (j = i + 1; j < sortedSlides.length; j++) {
-      if (sortedSlides[j].tags.length < 2 * maxScore) {
-        continue;
-      }
       score = calScore(sortedSlides[i].tags, sortedSlides[j].tags);
-      if (score > maxScore) {
+      let minNumOfTags = Math.min(
+        sortedSlides[i].tags.length,
+        sortedSlides[j].tags.length
+      );
+      if (score === minNumOfTags / 2) {
+        maxScore = score;
+        selectedSlideIndex = j;
+        break;
+      } else if (score > maxScore) {
         maxScore = score;
         selectedSlideIndex = j;
         continue;
